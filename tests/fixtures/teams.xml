@@ -1,0 +1,8 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <league><teams count="2">
+    <team><team_key>500.l.34393.t.6</team_key><team_id>6</team_id><name>oddly satisfying</name>
+      <managers><manager><guid>PRIVATE-GUID</guid><email>private@example.invalid</email></manager></managers>
+    </team>
+    <team><team_key>500.l.34393.t.2</team_key><team_id>2</team_id><name>Go Duck Yourself</name></team>
+  </teams></league>
+</fantasy_content>

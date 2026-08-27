@@ -1,0 +1,8 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <team><team_key>500.l.34393.t.6</team_key><team_id>6</team_id><name>oddly satisfying</name>
+    <roster><players count="2">
+      <player><player_key>500.p.40059</player_key><player_id>40059</player_id><name><full>Jahmyr Gibbs</full></name><display_position>RB</display_position><editorial_team_abbr>DET</editorial_team_abbr><selected_position><position>RB</position></selected_position></player>
+      <player><player_key>500.p.33398</player_key><player_id>33398</player_id><name><full>DeVonta Smith</full></name><display_position>WR</display_position><editorial_team_abbr>PHI</editorial_team_abbr><selected_position><position>WR</position></selected_position></player>
+    </players></roster>
+  </team>
+</fantasy_content>

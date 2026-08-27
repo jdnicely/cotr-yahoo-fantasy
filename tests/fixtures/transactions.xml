@@ -1,0 +1,5 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <league><transactions count="1"><transaction><transaction_key>500.l.34393.tr.1</transaction_key><transaction_id>1</transaction_id><type>add/drop</type><status>successful</status><timestamp>1788000000</timestamp>
+    <players><player><player_key>500.p.40121</player_key><name><full>Michael Wilson</full></name><transaction_data><type>add</type><destination_team_key>500.l.34393.t.6</destination_team_key></transaction_data></player></players>
+  </transaction></transactions></league>
+</fantasy_content>

@@ -1,0 +1,9 @@
+{
+  "distinct_positions_required": true,
+  "final_draft_round": 14,
+  "first_round_then_ineligible": true,
+  "first_year_cost": "original_draft_round",
+  "max_keepers": 2,
+  "repeat_cost_method": "floor_half",
+  "undrafted_cost_round": 14
+}

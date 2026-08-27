@@ -1,0 +1,6 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <league><scoreboard><week>1</week><matchups count="1"><matchup><week>1</week><status>postevent</status><teams>
+    <team><team_key>500.l.34393.t.6</team_key><name>oddly satisfying</name><team_points><total>101.25</total></team_points></team>
+    <team><team_key>500.l.34393.t.2</team_key><name>Go Duck Yourself</name><team_points><total>98.75</total></team_points></team>
+  </teams></matchup></matchups></scoreboard></league>
+</fantasy_content>

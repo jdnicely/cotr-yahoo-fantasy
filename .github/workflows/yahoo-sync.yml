@@ -1,0 +1,62 @@
+name: Sync Yahoo Fantasy
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: yahoo-fantasy-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run unit tests
+        run: python -m pytest -q
+
+      - name: Sync Yahoo fantasy data
+        env:
+          YAHOO_CLIENT_ID: ${{ secrets.YAHOO_CLIENT_ID }}
+          YAHOO_CLIENT_SECRET: ${{ secrets.YAHOO_CLIENT_SECRET }}
+          YAHOO_REFRESH_TOKEN: ${{ secrets.YAHOO_REFRESH_TOKEN }}
+          GH_SECRET_TOKEN: ${{ secrets.GH_SECRET_TOKEN }}
+        run: python -m sync.sync_yahoo
+
+      - name: Commit changed public data
+        if: ${{ vars.ALLOW_YAHOO_DATA_COMMITS == 'I_HAVE_CONFIRMED_YAHOO_TERMS' }}
+        shell: bash
+        run: |
+          if [ -z "$(git status --porcelain -- data/)" ]; then
+            echo "No Yahoo fantasy data changes."
+            exit 0
+          fi
+          git config user.name "cotr-yahoo-sync[bot]"
+          git config user.email "cotr-yahoo-sync[bot]@users.noreply.github.com"
+          git add data/
+          git commit -m "chore: sync Yahoo fantasy data"
+          git push
+
+      - name: Remove transient Yahoo data when publication is disabled
+        if: ${{ vars.ALLOW_YAHOO_DATA_COMMITS != 'I_HAVE_CONFIRMED_YAHOO_TERMS' }}
+        shell: bash
+        run: |
+          rm -rf data/
+          echo "Yahoo data was fetched transiently but was not persisted or published."

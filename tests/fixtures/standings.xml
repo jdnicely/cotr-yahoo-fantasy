@@ -1,0 +1,5 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <league><standings><teams>
+    <team><team_key>500.l.34393.t.6</team_key><team_id>6</team_id><name>oddly satisfying</name><team_standings><rank>1</rank><outcome_totals><wins>10</wins><losses>3</losses><ties>0</ties><percentage>.769</percentage></outcome_totals><points_for>1550.5</points_for><points_against>1300.0</points_against></team_standings></team>
+  </teams></standings></league>
+</fantasy_content>

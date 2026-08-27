@@ -1,0 +1,6 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <league><draft_results count="2">
+    <draft_result><pick>2</pick><round>1</round><team_key>500.l.34393.t.2</team_key><player_key>500.p.1002</player_key></draft_result>
+    <draft_result><pick>1</pick><round>1</round><team_key>500.l.34393.t.6</team_key><player_key>500.p.1001</player_key></draft_result>
+  </draft_results></league>
+</fantasy_content>

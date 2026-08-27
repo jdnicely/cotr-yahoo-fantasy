@@ -1,0 +1,12 @@
+.worktrees/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+*.token
+*.tokens
+credentials.json
+oauth.json

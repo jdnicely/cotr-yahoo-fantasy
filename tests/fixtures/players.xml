@@ -1,0 +1,6 @@
+<fantasy_content xmlns="http://fantasysports.yahooapis.com/fantasy/v2/base.rng">
+  <league><players count="2">
+    <player><player_key>500.p.40121</player_key><player_id>40121</player_id><name><full>Michael Wilson</full></name><display_position>WR</display_position><editorial_team_abbr>ARI</editorial_team_abbr><status>W</status></player>
+    <player><player_key>500.p.12345</player_key><player_id>12345</player_id><name><full>Example Player</full></name><display_position>RB</display_position><editorial_team_abbr>NYJ</editorial_team_abbr></player>
+  </players></league>
+</fantasy_content>
