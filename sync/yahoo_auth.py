@@ -11,6 +11,7 @@ from typing import Any, Callable
 import requests
 
 YAHOO_TOKEN_URL = "https://api.login.yahoo.com/oauth2/get_token"
+DEFAULT_REDIRECT_URI = "https://localhost:8080/callback"
 
 
 @dataclass(frozen=True)
@@ -40,7 +41,7 @@ def refresh_yahoo_token(
     client_id: str,
     client_secret: str,
     refresh_token: str,
-    redirect_uri: str = "oob",
+    redirect_uri: str = DEFAULT_REDIRECT_URI,
     session: requests.Session | Any | None = None,
 ) -> TokenResult:
     http = session or requests.Session()
@@ -85,7 +86,7 @@ def update_github_actions_secret(
 
 def authorization_url(
     client_id: str,
-    redirect_uri: str = "oob",
+    redirect_uri: str = DEFAULT_REDIRECT_URI,
     scope: str = "fspt-r",
 ) -> str:
     query = urlencode(
@@ -104,7 +105,7 @@ def exchange_authorization_code(
     client_id: str,
     client_secret: str,
     code: str,
-    redirect_uri: str = "oob",
+    redirect_uri: str = DEFAULT_REDIRECT_URI,
     session: requests.Session | Any | None = None,
 ) -> TokenResult:
     http = session or requests.Session()

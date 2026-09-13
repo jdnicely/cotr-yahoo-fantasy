@@ -18,11 +18,11 @@ Do not assume a newly created OAuth app can call the Fantasy API until Yahoo has
 Create the Yahoo application associated with the approved Fantasy API access. For this command-line bootstrap flow:
 
 - use OAuth 2.0 authorization-code flow
-- use `oob` as the redirect URI/callback
+- register `https://localhost:8080/callback` as the redirect URI/callback
 - request Fantasy Sports **read** access (`fspt-r`)
 - save the Client ID and Client Secret somewhere secure
 
-Yahoo's OAuth documentation explicitly supports `oob` for applications that do not run a callback server.
+The bootstrap uses the registered `https://localhost:8080/callback` redirect URI. A local callback server is not required: after authorization, copy the `code` query parameter from the browser address bar and paste it into the terminal.
 
 ## 3. Bootstrap the first Yahoo refresh token locally
 

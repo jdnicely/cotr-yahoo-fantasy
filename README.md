@@ -236,7 +236,7 @@ Tests cover the core behaviors including:
 
 After creating the Yahoo application and installing dependencies, follow the commands in **SETUP.md** to run the one-time authorization flow.
 
-The bootstrap uses Yahoo's authorization-code flow with `oob`, which is appropriate for a command-line setup where no callback web server is running.
+The bootstrap uses Yahoo's authorization-code flow with the registered redirect URI `https://localhost:8080/callback`. No callback server is required for bootstrap: after Yahoo redirects, copy the `code` value from the browser address bar and paste it into the terminal.
 
 Never paste Yahoo client secrets or refresh tokens into an issue, commit, README, or public chat transcript.
 

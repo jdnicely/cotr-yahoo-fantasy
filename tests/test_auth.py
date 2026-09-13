@@ -1,4 +1,7 @@
+from urllib.parse import parse_qs, urlparse
+
 from sync.yahoo_auth import (
+    DEFAULT_REDIRECT_URI,
     authorization_url,
     exchange_authorization_code,
     parse_token_response,
@@ -72,7 +75,7 @@ def test_refresh_yahoo_token_posts_expected_form_without_logging_tokens(capsys):
     assert kwargs["data"] == {
         "grant_type": "refresh_token",
         "refresh_token": "REFRESH",
-        "redirect_uri": "oob",
+        "redirect_uri": DEFAULT_REDIRECT_URI,
     }
     captured = capsys.readouterr()
     assert "ACCESS" not in captured.out + captured.err
@@ -114,14 +117,15 @@ def test_update_github_actions_secret_uses_stdin_not_command_line(capsys):
     assert "GH_TOKEN_VALUE" not in combined
 
 
-def test_authorization_url_uses_oob_code_flow_and_fantasy_read_scope():
+def test_authorization_url_uses_registered_callback_and_fantasy_read_scope():
     url = authorization_url("CLIENT")
     assert url.startswith("https://api.login.yahoo.com/oauth2/request_auth?")
-    assert "client_id=CLIENT" in url
-    assert "redirect_uri=oob" in url
-    assert "response_type=code" in url
-    assert "scope=fspt-r" in url
-    assert "language=en-us" in url
+    query = parse_qs(urlparse(url).query)
+    assert query["client_id"] == ["CLIENT"]
+    assert query["redirect_uri"] == [DEFAULT_REDIRECT_URI]
+    assert query["response_type"] == ["code"]
+    assert query["scope"] == ["fspt-r"]
+    assert query["language"] == ["en-us"]
 
 
 def test_exchange_authorization_code_uses_same_redirect_uri():
@@ -143,5 +147,5 @@ def test_exchange_authorization_code_uses_same_redirect_uri():
     assert kwargs["data"] == {
         "grant_type": "authorization_code",
         "code": "CODE",
-        "redirect_uri": "oob",
+        "redirect_uri": DEFAULT_REDIRECT_URI,
     }
